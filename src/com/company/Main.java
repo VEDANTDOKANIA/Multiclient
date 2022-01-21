@@ -1,5 +1,4 @@
 package com.company;
-
 import java.io.*;
 import java.net.Socket;
 import java.text.DateFormat;
@@ -16,12 +15,12 @@ public class Main {
     {
         Scanner scn = new Scanner(System.in);
 
-        Date date1;
+        Date date;
         while (true)
         {
-            String date=scn.next();
+            String stringdate=scn.next();
             try{
-                date1=new SimpleDateFormat("yyyy/MM/dd").parse(date);
+                date=new SimpleDateFormat("yyyy/MM/dd").parse(stringdate);
                 break;
             }
             catch (ParseException e)
@@ -29,7 +28,7 @@ public class Main {
                 System.out.println("Enter date in particular format : YYYY/MM/DD");
             }
         }
-        return date1;
+        return date;
     }
     public static int getnumber(){
         Scanner scn = new Scanner(System.in);
@@ -110,17 +109,17 @@ public class Main {
                             bw.newLine();
                             bw.flush();
                             System.out.println("Enter phone number ");
-                            String accountnumber;
+                            String phonenumber;
                             while (true) {
-                                accountnumber = sc.nextLine();
-                                if (String.valueOf(accountnumber).length() == 10) {
+                                phonenumber = sc.nextLine();
+                                if (String.valueOf(phonenumber).length() == 10) {
                                     break;
                                 }
                                 System.out.print("\033[1;31m");
                                 System.out.println("Enter valid 10 digits only");
                                 System.out.print("\033[0m");
                             }
-                            bw.write(String.valueOf(accountnumber));
+                            bw.write(String.valueOf(phonenumber));
                             bw.newLine();
                             bw.flush();
                             System.out.println("Enter account type:");
@@ -182,8 +181,6 @@ public class Main {
 
                             System.out.println("Enter the username");
                             String username = sc.nextLine();
-                            getusername = username;
-
                             bw.write(username);
                             bw.newLine();
                             bw.flush();
@@ -329,8 +326,8 @@ public class Main {
                                 System.out.println("Wrong option selected. Redirecting you to the main menu");
                             }
 
-                            String s1 = br.readLine();
-                            String[] arrayofstring = s1.split(":");
+                            var transactions = br.readLine();
+                            String[] arrayofstring = transactions.split(":");
                             List<String> listParts = Arrays.asList(arrayofstring);
                             for (int i = 1; i < listParts.size(); i++) {
                                 System.out.println(listParts.get(i));
