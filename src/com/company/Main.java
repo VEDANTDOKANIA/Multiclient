@@ -303,6 +303,10 @@ public class Main {
                             }
                             else if(choice==3)
                             {
+                                bw.write("custom");
+                                bw.newLine();
+                                bw.flush();
+
                                 System.out.println("Enter start Date");
                                 Date startdate = validateDate();
                                 DateFormat dateFormat = new SimpleDateFormat("yyyy/mm/dd");
@@ -314,8 +318,7 @@ public class Main {
                                 String endDate = dateFormat.format(enddate);
                                 bw.write(strDate);
                                 bw.newLine();
-
-
+                                bw.flush();
                                 bw.write(endDate);
                                 bw.newLine();
                                 bw.flush();
